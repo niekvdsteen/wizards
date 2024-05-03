@@ -1,19 +1,4 @@
 <?php
-/* TODO: For future DB implementations
-// Database credentials
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "platform";
-
-// Establish Connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-*/
 
 // Enable PHP error reporting
 error_reporting(E_ALL);
@@ -119,7 +104,7 @@ if ($uploadOk == 0) {
   if (move_uploaded_file($fileTmpLoc, "uploads/$newRandID.mp4") && move_uploaded_file($_FILES["thumb"]["tmp_name"], "uploads/$newRandID.jpeg")) {
     // Files uploaded successfully
   } else {
-    echo json_encode(['error' => '[Error: move_upload_file failed. Please contact info@bruh-clips.com]<br>']);
+    echo json_encode(['error' => '[Error: move_upload_file failed. Please contact info@dm-wizards.com]<br>']);
     exit;
   }
 }
@@ -128,7 +113,7 @@ if ($uploadOk == 0) {
 $newPage = file_get_contents("extra/template.html");
 
 // Insert link to thumbnail
-$newPage = str_replace("{%thumbLink%}", "https://bruh-clips.com/uploads/$newRandID" . ".jpeg", $newPage);
+$newPage = str_replace("{%thumbLink%}", "https://dm-wizards.com/uploads/$newRandID" . ".jpeg", $newPage);
 
 // Replace page title with video name
 $newPage = str_replace("{%videoName%}", $videoName, $newPage);
@@ -138,10 +123,10 @@ $insertFile = "<video style='width: 100%; height: 100%;' poster='../uploads/$new
 $newPage = str_replace("{%insertFile%}", $insertFile, $newPage);
 
 // Insert Link for Clipboard Copy
-$newPage = str_replace("{%pageLink%}", "https://bruh-clips.com/clips/$newRandID", $newPage);
+$newPage = str_replace("{%pageLink%}", "https://dm-wizards.com/clips/$newRandID", $newPage);
 
 // Insert video file link for meta tags
-$newPage = str_replace("{%videoFileLink%}", "https://bruh-clips.com/uploads/$newRandID-0.mp4", $newPage);
+$newPage = str_replace("{%videoFileLink%}", "https://dm-wizards.com/uploads/$newRandID-0.mp4", $newPage);
 
 // Insert Download Button
 $downloadButton = "<a class='btn btn-danger' href='../uploads/$newRandID-0.mp4' role='button' download='$fileName'><i class='bi bi-download'></i> Download Clip</a>";
@@ -158,19 +143,19 @@ if (file_put_contents("clips/$newRandID.html", $newPage) && $uploadOk == 1) {
   //$conn->close();
 
   //shell_exec("ffmpeg -y public_html/uploads/$newRandID.mp4 public_html/uploads/$newRandID.mp4 </dev/null >/dev/null 2>/ffmpeg.log &");
-  //shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$newRandID.mp4 uploads/$newRandID-0.mp4 </dev/null >/dev/null 2>/ffmpeg.log &");
-  //shell_exec("/usr/home/bruhnc/ffmpeg -y -movflags +faststart -i uploads/$newRandID.mp4 uploads/$newRandID-0.mp4 >/dev/null 2>ffmpeg.log &");
+  //shell_exec("/usr/bin/ffmpeg -y -i uploads/$newRandID.mp4 uploads/$newRandID-0.mp4 </dev/null >/dev/null 2>/ffmpeg.log &");
+  //shell_exec("/usr/bin/ffmpeg -y -movflags +faststart -i uploads/$newRandID.mp4 uploads/$newRandID-0.mp4 >/dev/null 2>ffmpeg.log &");
   //echo shell_exec("/usr/home/bruhnc/qt-faststart -y ../uploads/$newRandID.mp4 ../uploads/$newRandID.mp4 2>&1");
 
-  shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$newRandID.mp4 -c copy -map 0 -movflags +faststart uploads/$newRandID-0.mp4 > /dev/null 2> ffmpeg.log");
+  shell_exec("/usr/bin/ffmpeg -y -i uploads/$newRandID.mp4 -c copy -map 0 -movflags +faststart uploads/$newRandID-0.mp4 > /dev/null 2> ffmpeg.log");
   unlink("uploads/$newRandID.mp4");
 
   // Redirect to new page
   header('Content-Type: application/json');
-  echo json_encode(['location' => 'https://bruh-clips.com/clips/' . $newRandID]);
+  echo json_encode(['location' => 'https://dm-wizards.com/clips/' . $newRandID]);
   exit;
 } else {
-  echo json_encode(['error' => '[Error: Video page creation failed. Please contact info@bruh-clips.com]<br>']);
+  echo json_encode(['error' => '[Error: Video page creation failed. Please contact info@dm-wizards.com]<br>']);
   exit;
 }
 exit;

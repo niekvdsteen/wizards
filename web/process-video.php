@@ -5,7 +5,7 @@ $video_id = $_POST["id"];
 //shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$video_id .mp4 uploads/$video_id-0.mp4 > /dev/null 2> ffmpeg.log");
 //shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$video_id.mp4 uploads/$video_id-0.mp4 > /dev/null 2> ffmpeg.log");
 //shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$video_id.mp4 uploads/$video_id-0.mp4");
-shell_exec("/usr/home/bruhnc/ffmpeg -y -i uploads/$video_id.mp4 -c copy -map 0 -movflags +faststart uploads/$video_id-0.mp4 > /dev/null 2> ffmpeg.log");
+shell_exec("/usr/bin/ffmpeg -y -i uploads/$video_id.mp4 -c copy -map 0 -movflags +faststart uploads/$video_id-0.mp4 > /dev/null 2> ffmpeg.log");
 
 
 // Load video page
@@ -16,7 +16,7 @@ $insertFile = "<video id='uploaded-video' style='width: 100%; height: 100%;' pos
 $videoPage = str_replace("{%insertFile%}", $insertFile, $videoPage);
 
 // Insert video file link for meta tags
-$videoPage = str_replace("{%videoFileLink%}", "https://bruh-clips.com/uploads/$video_id-0.mp4", $videoPage);
+$videoPage = str_replace("{%videoFileLink%}", "https://dm-wizards.com/uploads/$video_id-0.mp4", $videoPage);
 // Save page
 file_put_contents("clips/$video_id.html", $videoPage);
 
