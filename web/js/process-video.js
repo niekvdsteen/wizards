@@ -40,7 +40,7 @@ function processVideo() {
                     document.getElementById("status").innerHTML = "<b>Server-Side Errors:</b> <br>" + response.error + "<b> Please try to resolve the errors or contact us at info@bruh-clips.com";
                 } else {
                     //window.location.href = response.location;
-                    location.reload();
+                    //location.reload();
                 }
             }
         }
