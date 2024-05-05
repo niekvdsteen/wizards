@@ -113,7 +113,7 @@ if ($uploadOk == 0) {
 $newPage = file_get_contents("extra/template.html");
 
 // Insert link to thumbnail
-$newPage = str_replace("{%thumbLink%}", "https://dm-wizards.com/uploads/$newRandID" . ".jpeg", $newPage);
+$newPage = str_replace("{%thumbLink%}", "http://dm-wizards.com/uploads/$newRandID" . ".jpeg", $newPage);
 
 // Replace page title with video name
 $newPage = str_replace("{%videoName%}", $videoName, $newPage);
@@ -123,10 +123,10 @@ $insertFile = "<video style='width: 100%; height: 100%;' poster='../uploads/$new
 $newPage = str_replace("{%insertFile%}", $insertFile, $newPage);
 
 // Insert Link for Clipboard Copy
-$newPage = str_replace("{%pageLink%}", "https://dm-wizards.com/clips/$newRandID", $newPage);
+$newPage = str_replace("{%pageLink%}", "http://dm-wizards.com/clips/$newRandID", $newPage);
 
 // Insert video file link for meta tags
-$newPage = str_replace("{%videoFileLink%}", "https://dm-wizards.com/uploads/$newRandID-0.mp4", $newPage);
+$newPage = str_replace("{%videoFileLink%}", "http://dm-wizards.com/uploads/$newRandID-0.mp4", $newPage);
 
 // Insert Download Button
 $downloadButton = "<a class='btn btn-danger' href='../uploads/$newRandID-0.mp4' role='button' download='$fileName'><i class='bi bi-download'></i> Download Clip</a>";
@@ -152,7 +152,7 @@ if (file_put_contents("clips/$newRandID.html", $newPage) && $uploadOk == 1) {
 
   // Redirect to new page
   header('Content-Type: application/json');
-  echo json_encode(['location' => 'https://dm-wizards.com/clips/' . $newRandID]);
+  echo json_encode(['location' => 'http://dm-wizards.com/clips/' . $newRandID]);
   exit;
 } else {
   echo json_encode(['error' => '[Error: Video page creation failed. Please contact info@dm-wizards.com]<br>']);
