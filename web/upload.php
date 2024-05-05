@@ -134,7 +134,7 @@ $newPage = str_replace("{%insertButton%}", $downloadButton, $newPage);
 
 // Calculate page expiry and insert
 // Takes current timestamp and adds 2 days in seconds (2d * 24h * 60m *60s)
-$expiryDate = time() + (2 * 24 * 60 * 60);
+$expiryDate = time() + (90 * 24 * 60 * 60);
 $newPage = str_replace("{%expiryDate%}", date('d. F Y H:00 e', $expiryDate), $newPage);
 
 // Create new html page
@@ -152,7 +152,7 @@ if (file_put_contents("clips/$newRandID.html", $newPage) && $uploadOk == 1) {
 
   // Redirect to new page
   header('Content-Type: application/json');
-  echo json_encode(['location' => 'http://dm-wizards.com/clips/' . $newRandID]);
+  echo json_encode(['location' => 'http://dm-wizards.com/clips/' . $newRandID.'.html']);
   exit;
 } else {
   echo json_encode(['error' => '[Error: Video page creation failed. Please contact info@dm-wizards.com]<br>']);
