@@ -123,7 +123,7 @@ $insertFile = "<video style='width: 100%; height: 100%;' poster='../uploads/$new
 $newPage = str_replace("{%insertFile%}", $insertFile, $newPage);
 
 // Insert Link for Clipboard Copy
-$newPage = str_replace("{%pageLink%}", "http://dm-wizards.com/clips/$newRandID", $newPage);
+$newPage = str_replace("{%pageLink%}", "http://dm-wizards.com/clips/$newRandID.html", $newPage);
 
 // Insert video file link for meta tags
 $newPage = str_replace("{%videoFileLink%}", "http://dm-wizards.com/uploads/$newRandID-0.mp4", $newPage);
