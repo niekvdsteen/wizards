@@ -92,29 +92,6 @@
                 <strong>File to big!</strong> The file size limit is 500mb.
                 <button type="button" class="btn-close" onclick="closeFileToBigAlert()" aria-label="Close"></button>
             </div>
-            <!-- Expiry selection currently not an implemented feature
-            <div class="row pb-2">
-                <div class="col">
-                    <label for="fileExpiration" class="form-label">File Expiration:</label>
-                    <select id="fileExpiration" class="form-select" aria-label="Select Expiry Time" required>
-                        <option value="1">1 Hour</option>
-                        <option value="12">12 Hours</option>
-                        <option value="24">24 Hours</option>
-                        <option value="48">48 Hours</option>
-                    </select>
-                </div>
-            </div>-->
-            <div class="row pb-2">
-                <div class="col">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                        <label class="form-check-label" for="exampleCheck1">I accept the <a href=""
-                                data-bs-toggle="modal" data-bs-target="#tacModal">terms of service</a> and acknowledge
-                            the <a href="privacy" target="_blank">privacy statement</a>.</label>
-                        <!--<div class="invalid-feedback">You must agree before uploading.</div>-->
-                    </div>
-                </div>
-            </div>
             <div class="row pb-2">
                 <div class="col">
                     <div class="progress" id="progress-wrapper" style="display: none;">
@@ -132,61 +109,12 @@
             </div>
             <div class="row pb-2">
                 <div class="col d-flex justify-content-center">
-                    <!--<button type="submit" name="submit" class="btn btn-danger"><i class="bi bi-upload"></i> Upload Clip</button>-->
                     <button class="btn btn-danger" id="uploadButton" type="submit"><i class="bi bi-upload"></i> Upload Clip</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <!-- Terms and Conditions Modal -->
-    <div class="modal fade" id="tacModal" tabindex="-1" aria-labelledby="tacModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tacModalLabel">Terms of Service</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        The user must be of at least the age of 13, and agrees to not use dm-wizards
-                        for any illegal or unauthorized purposes. The user must agree to comply with local laws
-                        regarding online conduct, and copyright laws. dm-wizards is intended for personal use,
-                        and any business use is strictly prohibited. The user must not use dm-wizards
-                        to violate any laws which include but are not limited to copyright laws.
-                    </p>
-                    <p>
-                        The users uses dm-wizards at his own risk and understands that files uploaded on dm-wizards are
-                        not private, they may be displayed for others to view and download, and he understands and
-                        agrees that dm-wizards cannot be responsible for the content uploaded
-                        on its web site and he nonetheless may be exposed to such materials and that he uses dm-wizards
-                        at his own risk.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="d-grid pb-3 gap-3 container" id="bottom">
-        <footer>
-            <div class="row">
-                <div class="col" style="text-align: right;">
-                    <a class="footer-link" href="imprint" target="_blank">Imprint</a>
-                </div>
-                <div class="col" style="text-align: left;">
-                    <a class="footer-link" href="privacy" target="_blank">Privacy</a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <a class="footer-link" href="https://github.com/Shanksum/dm-wizards" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-                </div>
-            </div>
-        </footer>
-    </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
